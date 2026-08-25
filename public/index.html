@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘의 할 일 - Clean Blue Todo</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- 헤더 영역: 뱃지, 제목, 서브텍스트 -->
+      <header class="app-header">
+        <span class="badge-blue">DAILY TASKS</span>
+        <h1 class="app-title">오늘의 할 일</h1>
+        <p class="app-subtitle">
+          오늘 집중해야 할 작업들을 계획하고 관리합니다.
+        </p>
+      </header>
+
+      <!-- 메인 카드 영역: 입력창 및 목록 -->
+      <main class="app-card">
+        <!-- 1. 입력 폼 영역 -->
+        <section class="input-section">
+          <form class="todo-form" id="todoForm">
+            <input
+              type="text"
+              id="todoInput"
+              class="todo-input"
+              placeholder="할 일 입력해주세요"
+              aria-label="할 일 입력"
+              autocomplete="off"
+            />
+            <button type="submit" id="btnAdd" class="btn-add">추가</button>
+          </form>
+        </section>
+
+        <!-- 2. 할 일 목록 영역 -->
+        <section class="list-section">
+          <ul class="todo-list" id="todoList">
+            <!-- 완료된 항목 샘플 -->
+            <li class="todo-item completed">
+              <input
+                type="checkbox"
+                class="todo-checkbox"
+                checked
+                aria-label="할 일 완료 여부 선택"
+              />
+              <span class="todo-text">HTML 기본 뼈대 구조 작성하기</span>
+              <div class="item-actions">
+                <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">
+                  수정
+                </button>
+                <button
+                  type="button"
+                  class="delete-btn btn-delete"
+                  aria-label="할 일 삭제"
+                >
+                  삭제
+                </button>
+              </div>
+            </li>
+            <!-- 진행 중 항목 샘플 1 -->
+            <li class="todo-item">
+              <input
+                type="checkbox"
+                class="todo-checkbox"
+                aria-label="할 일 완료 여부 선택"
+              />
+              <span class="todo-text">Clean Blue 디자인 토큰 CSS 정의하기</span>
+              <div class="item-actions">
+                <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">
+                  수정
+                </button>
+                <button
+                  type="button"
+                  class="delete-btn btn-delete"
+                  aria-label="할 일 삭제"
+                >
+                  삭제
+                </button>
+              </div>
+            </li>
+            <!-- 진행 중 항목 샘플 2 -->
+            <li class="todo-item">
+              <input
+                type="checkbox"
+                class="todo-checkbox"
+                aria-label="할 일 완료 여부 선택"
+              />
+              <span class="todo-text"
+                >반응형 레이아웃 및 마이크로 인터랙션 다듬기</span
+              >
+              <div class="item-actions">
+                <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">
+                  수정
+                </button>
+                <button
+                  type="button"
+                  class="delete-btn btn-delete"
+                  aria-label="할 일 삭제"
+                >
+                  삭제
+                </button>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 3. 상태 요약 푸터 바 -->
+        <footer class="todo-footer">
+          <span class="count-info" id="countInfo"
+            >전체 <strong>3</strong>개 중 <strong>1</strong>개 완료</span
+          >
+          <span class="status-badge" id="statusBadge">오늘 진행률 33%</span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- 화면 인터랙션 스크립트 연결 -->
+    <script src="script.js"></script>
+  </body>
+</html>

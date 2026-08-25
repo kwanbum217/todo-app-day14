@@ -1,0 +1,378 @@
+/* ==========================================================================
+   Clean Blue & White Design System (Coinbase & Modern Enterprise Style)
+   규칙: 전체 배경(흰색), 본문 글자(진한 회색), 제목/포인트(파란색)
+   ========================================================================== */
+:root {
+  /* 색상 토큰 (Color Palette) */
+  --primary: #0052ff;              /* 시그니처 일렉트릭 블루 (제목, 주요 버튼, 포인트) */
+  --primary-active: #003ecc;       /* 호버 및 액티브 시 어두운 블루 */
+  --primary-subtle: #edf2fe;       /* 연한 블루 서피스 (뱃지 배경 등) */
+  --primary-disabled: #a8b8cc;     /* 비활성화 블루 */
+  --ink: #0a0b0d;                  /* 가장 어두운 잉크 블랙 */
+  --body: #5b616e;                 /* 본문 텍스트 (진한 슬레이트 회색) */
+  --body-strong: #1e2329;          /* 강조 본문 텍스트 */
+  --muted: #7c828a;                /* 보조 설명 텍스트 (미디엄 회색) */
+  --muted-soft: #a8acb3;           /* 디밍/완료 텍스트 (연한 회색) */
+  --hairline: #dee1e6;             /* 1px 외곽 테두리선 */
+  --hairline-soft: #eef0f3;        /* 부드러운 내부 구분선 */
+  --canvas: #ffffff;               /* 전체 기본 배경 (순수 흰색) */
+  --surface-card: #ffffff;          /* 메인 카드 배경 (흰색) */
+  --surface-soft: #f7f9fa;         /* 서브 박스 배경 (아주 옅은 쿨 그레이) */
+  --surface-item: #ffffff;         /* 리스트 아이템 배경 */
+  --surface-hover: #f4f6f8;        /* 리스트 호버 배경 */
+  --on-primary: #ffffff;           /* 블루 버튼 내부 텍스트 */
+  --success: #05b169;              /* 완료 상태 녹색 */
+  --error: #cf202f;                /* 삭제/에러 상태 빨간색 */
+
+  /* 타이포그래피 토큰 (Typography) */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* 형태 및 모서리 둥글기 (Border Radius) */
+  --rounded-sm: 6px;
+  --rounded-md: 10px;
+  --rounded-lg: 16px;
+  --rounded-pill: 9999px;
+
+  /* 여백 스케일 (Spacing Scale - 4px 기반) */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-section: 64px;
+}
+
+/* ==========================================================================
+   글로벌 리셋 및 기본 바디 스타일 (Base & Reset)
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--canvas); /* 전체 배경: 흰색 */
+  color: var(--body);              /* 본문 글자: 진한 회색 */
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-section) var(--space-md);
+}
+
+/* ==========================================================================
+   레이아웃 및 컨테이너 (Layout & Container)
+   ========================================================================== */
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* 헤더 영역 */
+.app-header {
+  text-align: center;
+}
+
+.badge-blue {
+  display: inline-block;
+  background-color: var(--primary-subtle);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--rounded-pill);
+  margin-bottom: var(--space-xs);
+}
+
+/* 제목: 파란색(#0052ff) 설정 */
+.app-title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--primary);           /* 제목은 파란색 */
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.app-subtitle {
+  font-size: 14px;
+  color: var(--body);              /* 진한 회색 */
+  font-weight: 400;
+}
+
+/* 메인 카드 */
+.app-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  box-shadow: 0 4px 20px rgba(10, 11, 13, 0.04);
+}
+
+/* ==========================================================================
+   입력 폼 컨트롤 (Input & Button Form)
+   ========================================================================== */
+.todo-form {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.todo-input {
+  flex: 1;
+  height: 44px;
+  padding: 10px 16px;
+  background-color: var(--surface-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-md);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--body-strong);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.todo-input::placeholder {
+  color: var(--muted);
+}
+
+.todo-input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.15);
+}
+
+.btn-add {
+  height: 44px;
+  padding: 0 22px;
+  background-color: var(--primary); /* 파란색 버튼 */
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--rounded-md);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-active);
+}
+
+.btn-add:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Todo 목록 및 개별 항목 (Todo List & Item)
+   ========================================================================== */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  background-color: var(--surface-item);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-md);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-item:hover {
+  border-color: var(--muted);
+  background-color: var(--surface-hover);
+}
+
+.todo-checkbox {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  color: var(--body-strong);       /* 진한 본문 텍스트 */
+  word-break: break-word;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--muted-soft);
+}
+
+/* 인라인 수정 입력창 */
+.todo-edit-input {
+  flex: 1;
+  height: 36px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  border: 1px solid var(--primary);
+  border-radius: var(--rounded-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--body-strong);
+  box-shadow: 0 0 0 2px rgba(0, 82, 255, 0.15);
+  outline: none;
+}
+
+/* 액션 버튼 그룹 */
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.btn-edit {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: var(--rounded-sm);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.edit-btn:hover,
+.btn-edit:hover {
+  color: var(--primary);
+  background-color: var(--primary-subtle);
+}
+
+/* 삭제 버튼: 빨간 계열 배경으로 명확히 구분 */
+.delete-btn,
+.btn-delete {
+  background-color: #feecee;       /* 빨간 계열 소프트 배경 */
+  color: var(--error);             /* 텍스트: 빨간색(#cf202f) */
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: var(--rounded-sm);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.delete-btn:hover,
+.btn-delete:hover {
+  background-color: #fdd8db;       /* 호버 시 조금 더 짙은 레드 배경 */
+  color: #b91c1c;
+}
+
+.btn-save {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--rounded-sm);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-save:hover {
+  background-color: var(--primary-active);
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 1px solid var(--hairline);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: var(--rounded-sm);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-cancel:hover {
+  background-color: var(--surface-soft);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   상태 통계 푸터 바 (Summary & Footer)
+   ========================================================================== */
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--hairline);
+  font-size: 13px;
+  color: var(--body);              /* 진한 회색 */
+}
+
+.todo-footer strong {
+  color: var(--primary);           /* 포인트 파란색 */
+  font-weight: 700;
+}
+
+.status-badge {
+  background-color: var(--primary-subtle);
+  color: var(--primary);           /* 파란색 텍스트 */
+  padding: 5px 12px;
+  border-radius: var(--rounded-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   반응형 미디어 쿼리 (Responsive Breakpoints)
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-xl) var(--space-sm);
+  }
+
+  .app-title {
+    font-size: 28px;
+  }
+
+  .app-card {
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .todo-form {
+    flex-direction: row;
+  }
+}
